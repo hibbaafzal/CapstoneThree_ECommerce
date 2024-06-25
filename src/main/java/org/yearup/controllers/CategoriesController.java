@@ -27,7 +27,7 @@ public class CategoriesController
     }
 
 
-    // get a category
+    // get category
     @GetMapping("")
     public List<Category> getAll()
     {
