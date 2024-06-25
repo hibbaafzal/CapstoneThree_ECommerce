@@ -13,13 +13,16 @@ import org.yearup.models.User;
 
 import java.security.Principal;
 
+
+// convert this class to a REST controller
+// only logged-in users should have access to these actions
 @RestController
 @RequestMapping("cart")
 @CrossOrigin
 @Secured({"ROLE_ADMIN", "ROLE_USER"})
-public class ShoppingCartController
-{
+public class ShoppingCartController {
 
+    // a shopping cart requires
     private ShoppingCartDao shoppingCartDao;
     private UserDao userDao;
     private ProductDao productDao;
@@ -33,78 +36,66 @@ public class ShoppingCartController
 
     // each method in this controller requires a Principal object as a parameter
     @GetMapping("")
-    public ShoppingCart getCart(Principal principal)
-    {
-        try
-        {
+    public ShoppingCart getCart(Principal principal) {
+        try {
+            // get the currently logged-in username
+            String userName = principal.getName();
 
-            String currentUser = principal.getName();
-
-            User user = userDao.getByUserName(currentUser);
+            // find database user by userId
+            User user = userDao.getByUserName(userName);
             int userId = user.getId();
 
             return shoppingCartDao.getByUserId(userId);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
 
-   // add items to cart
     @PostMapping("products/{product_id}")
     public void addItemToCart(Principal principal, @PathVariable int product_id) {
-        try
-        {
+        try {
+            // get the currently logged-in username
+            String userName = principal.getName();
 
-            String currentUser = principal.getName();
-
-            User user = userDao.getByUserName(currentUser);
+            // find database user by userId
+            User user = userDao.getByUserName(userName);
             int userId = user.getId();
 
             shoppingCartDao.addItemToCart(userId, product_id);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
 
-    // update items
     @PutMapping("products/{product_id}")
     public int updateItemInCart(Principal principal, @PathVariable int product_id) {
-        try
-        {
-            String currentUser = principal.getName();
+        try {
+            // get the currently logged-in username
+            String userName = principal.getName();
 
-            User user = userDao.getByUserName(currentUser);
+            // find database user by userId
+            User user = userDao.getByUserName(userName);
             int userId = user.getId();
 
             return shoppingCartDao.updateItemInCart(userId, product_id);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
 
-    // delete items
     @DeleteMapping("")
     public int deleteCart(Principal principal) {
-        try
-        {
+        try {
+            // get the currently logged-in username
+            String userName = principal.getName();
 
-            String currentUser = principal.getName();
-
-            User user = userDao.getByUserName(currentUser);
+            // find database user by userId
+            User user = userDao.getByUserName(userName);
             int userId = user.getId();
 
             return shoppingCartDao.deleteCart(userId);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
-
 }
