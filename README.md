@@ -176,5 +176,9 @@ Once a profile is edited in the website, it is updated in the database as well.
 ### Interesting Piece of Code
 
 
+Updates profiles in the website, as well as updates it in the database. 
+
+
+<img width="833" alt="Screenshot 2024-06-26 at 2 46 40 PM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/0ea8c1c9-ff0b-43a6-b30a-581c75240a5c">
 
 
