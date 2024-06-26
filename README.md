@@ -17,8 +17,8 @@ Admins can:
 ## The Home Page
 
 When the user first opens the website, they can choose a category, login, or filter products according to the price range. 
-<img width="1512" alt="Screenshot 2024-06-26 at 11 05 23 AM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/ba27849a-6f00-4e76-a4a8-6acb4e8a75b4">
 
+<img width="1512" alt="Screenshot 2024-06-26 at 5 51 31 PM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/e0f88d56-8aa4-4f03-9e45-381d342f5d9f">
 
 <details> 
   
@@ -72,7 +72,7 @@ Users can filter products by the category.
 
 Once they choose a category, only products from that category will be displpayed. 
 
-<img width="1512" alt="Screenshot 2024-06-26 at 11 15 23 AM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/fc78dca0-23c9-4efe-bc26-3bec2073ac01">
+<img width="1098" alt="Screenshot 2024-06-26 at 5 52 42 PM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/353291be-5b07-43c6-afd5-3d6ad103ac4e">
 
   
 </details>
@@ -86,14 +86,15 @@ Once they choose a category, only products from that category will be displpayed
 
   ### Filter by Price
 
-  Users can filter by the price, using the slider, and only products within that price range will be displayed. 
+Users can filter by the price, using the slider, and only products within that price range will be displayed. 
 
   
-  <img width="836" alt="Screenshot 2024-06-26 at 11 17 49 AM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/932e1a0e-f211-418c-adb6-2548accd7a91">
-  
+<img width="1098" alt="Screenshot 2024-06-26 at 5 53 32 PM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/82e280ce-bd0e-4cf0-a168-49bf1310800c">
 
-  <img width="1116" alt="Screenshot 2024-06-26 at 11 18 57 AM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/34c51026-ee05-4f55-82b0-c3150c8f0307">
+ <img width="1146" alt="Screenshot 2024-06-26 at 5 54 18 PM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/7412a6b2-300c-4035-b986-8a2b272fa254">
 
+
+ 
 
 Shown below are products from the price range of 25-100 dollars. 
 
@@ -115,7 +116,7 @@ Users are also able to add products to their cart, view their cart, and clear th
 
 A user must be logged in, in order to add products to their cart.
 
-<img width="1326" alt="Screenshot 2024-06-26 at 11 43 38 AM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/4d13afb3-e500-4986-985a-5df262b3f46b">
+<img width="1512" alt="Screenshot 2024-06-26 at 6 00 12 PM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/12b3c56a-54f3-417d-a7f6-e4d98148a088">
 
 
 When the user logs in, their cart is availiable for them to see. 
