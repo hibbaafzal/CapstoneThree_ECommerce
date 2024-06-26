@@ -1,91 +1,138 @@
 package org.yearup.data.mysql;
 
 import org.springframework.stereotype.Component;
-import org.yearup.data.ShoppingCartDao;
-import org.yearup.models.ShoppingCart;
-import org.yearup.models.ShoppingCartItem;
+import org.yearup.data.CategoryDao;
+import org.yearup.models.Category;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
-public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDao {
-    public MySqlShoppingCartDao(DataSource dataSource) {
+public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
+{
+    public MySqlCategoryDao(DataSource dataSource)
+    {
         super(dataSource);
     }
 
     @Override
-    public ShoppingCart getByUserId(int userId) {
-        ShoppingCart shoppingCart = new ShoppingCart();
-        String query = "SELECT * FROM shopping_cart JOIN products ON products.product_id = shopping_cart.product_id WHERE user_id = ?";
+    public List<Category> getAllCategories()
+    {
+        List<Category> categories = new ArrayList<>();
+        String query = "SELECT * FROM categories";
 
         try (Connection connection = getConnection()) {
             PreparedStatement ps = connection.prepareStatement(query);
-            ps.setInt(1, userId);
 
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-                ShoppingCartItem item = new ShoppingCartItem();
-                item.setProduct(MySqlProductDao.mapRow(resultSet));
-                item.setQuantity(resultSet.getInt("quantity"));
-                shoppingCart.add(item);
+                Category category = mapRow(resultSet);
+                categories.add(category);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return shoppingCart;
+        return categories;
     }
 
-    // add items to cart
     @Override
-    public void addItemToCart(int userId, int product_id) {
-        ShoppingCart shoppingCart = getByUserId(userId);
-        String query = "INSERT INTO shopping_cart (user_id, product_id, quantity) VALUES (?, ?, ?)";
+    public Category getById(int categoryId)
+    {
+        String query = "SELECT * FROM categories WHERE category_id = ?";
 
         try (Connection connection = getConnection()) {
             PreparedStatement ps = connection.prepareStatement(query);
-            ps.setInt(1, userId);
-            ps.setInt(2, product_id);
-            ps.setInt(3, 1);
+            ps.setInt(1, categoryId);
 
-            ps.execute();
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                return mapRow(resultSet);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    @Override
+    public Category create(Category category)
+    {
+        String query = "INSERT INTO categories (category_id, name, description) VALUES (?, ?, ?)";
+
+        try (Connection connection = getConnection()) {
+            PreparedStatement ps = connection.prepareStatement(query);
+
+            ps.setInt(1, category.getCategoryId());
+            ps.setString(2, category.getName());
+            ps.setString(3, category.getDescription());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return category;
+    }
+
+    @Override
+    public void update(int categoryId, Category category)
+    {
+        String query = "UPDATE categories" +
+                " SET name = ? " +
+                "   , description = ? " +
+                " WHERE category_id = ?;";
+
+        try (Connection connection = getConnection())
+        {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, category.getName());
+            ps.setString(2, category.getDescription());
+            ps.setInt(3, categoryId);
+
+            ps.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void delete(int categoryId)
+    {
+        String query = "DELETE FROM categories WHERE category_id = ?";
+
+        try (Connection connection = getConnection()) {
+            PreparedStatement ps = connection.prepareStatement(query);
+
+            ps.setInt(1, categoryId);
+
+            ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    // update items in cart
-    @Override
-    public int updateItemInCart(int userId, int product_id) {
-        String query = "UPDATE shopping_cart SET quantity = quantity + 1 WHERE user_id = ? AND product_id = ?";
+    private Category mapRow(ResultSet row) throws SQLException
+    {
+        int categoryId = row.getInt("category_id");
+        String name = row.getString("name");
+        String description = row.getString("description");
 
-        try (Connection connection = getConnection()) {
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setInt(1, userId);
-            ps.setInt(2, product_id);
+        Category category = new Category()
+        {{
+            setCategoryId(categoryId);
+            setName(name);
+            setDescription(description);
+        }};
 
-            return ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        return category;
     }
 
-    // delete items in cart
-    @Override
-    public int deleteCart(int userId) {
-        String query = "DELETE FROM shopping_cart WHERE user_id = ?";
-
-        try (Connection connection = getConnection()) {
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setInt(1, userId);
-
-            return ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
