@@ -7,7 +7,7 @@ Users can:
 - filter by category,
 - filter by color,
 - add products to their cart
-- edit/create a new profile (idk ab this we shall see)
+- edit/create a new profile
 
 Admins can:
 - add or delete products,
@@ -102,7 +102,7 @@ Once they choose a category, only products from that category will be displpayed
   
   **<summary> Adding to Cart </summary>**
 
-  Users are also able to add products to their cart, view their cart, and clear their cart. When a user logs out, and logs back into their account, the cart items, are still avaliable for them to see.
+Users are also able to add products to their cart, view their cart, and clear their cart. When a user logs out, and logs back into their account, the cart items, are still avaliable for them to see.
 
 
 A user must be logged in, in order to add products to their cart.
@@ -113,7 +113,6 @@ A user must be logged in, in order to add products to their cart.
 When the user logs in, their cart is availiable for them to see. 
 
 <img width="303" alt="Screenshot 2024-06-26 at 11 43 08 AM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/e8bb6b6f-382e-4829-99bb-1fa30769f42d">
-
 
 
 
@@ -144,11 +143,24 @@ Add Another Product To Cart/Get Cart
 
 <img width="821" alt="Screenshot 2024-06-26 at 11 50 58 AM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/19aa3ee1-7825-4a5f-84c8-0d31c2d1d305">
 
- 
+
 </details> 
+
+
+<details> 
   
+**<summary> Editing a Profile </summary>**
+
+Users can also edit their profiles.
+
+ <img width="1190" alt="Screenshot 2024-06-26 at 1 01 39 PM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/f274f034-29fc-4c3b-b18e-9f27c4bc5262">
 
 
+Once a profile is edited in the website, it is updated in the database as well. 
+
+<img width="738" alt="Screenshot 2024-06-26 at 1 07 22 PM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/a18f84c7-4671-4f4c-9920-47706eab2887">
+
+</details> 
 
 ### Interesting Piece of Code
 
