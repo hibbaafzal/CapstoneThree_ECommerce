@@ -94,6 +94,14 @@ Once they choose a category, only products from that category will be displpayed
 
   <img width="1116" alt="Screenshot 2024-06-26 at 11 18 57 AM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/34c51026-ee05-4f55-82b0-c3150c8f0307">
 
+
+Shown below are products from the price range of 25-100 dollars. 
+
+<img width="1135" alt="Screenshot 2024-06-26 at 1 37 15 PM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/d9cff0f8-0966-4015-9966-dba0f248c1de">
+
+
+
+
 </details>
 
 
@@ -131,7 +139,9 @@ Add a Product to Cart
 
 
 Delete All Items From Cart
- <img width="803" alt="Screenshot 2024-06-26 at 11 49 02 AM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/c31b7c07-c5ba-4683-a20a-a66049111c89">
+
+
+<img width="803" alt="Screenshot 2024-06-26 at 11 49 02 AM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/c31b7c07-c5ba-4683-a20a-a66049111c89">
 
 
 
@@ -158,11 +168,13 @@ Users can also edit their profiles.
 
 Once a profile is edited in the website, it is updated in the database as well. 
 
+
 <img width="738" alt="Screenshot 2024-06-26 at 1 07 22 PM" src="https://github.com/hibbaafzal/CapstoneThree_ECommerce/assets/166542360/a18f84c7-4671-4f4c-9920-47706eab2887">
 
 </details> 
 
 ### Interesting Piece of Code
+
 
 
 
