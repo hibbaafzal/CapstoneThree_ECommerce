@@ -67,13 +67,7 @@ public class ShoppingCartController
 
             ShoppingCart shoppingCart = getCart(principal);
 
-            for (Map.Entry<Integer, ShoppingCartItem> item : shoppingCart.getItems().entrySet()) {
-                if (item.getValue().getProductId() == product_id) {
-                    shoppingCartDao.updateItemInCart(userId, product_id);
-                    return getCart(principal);
-                }
-            }
-
+        
             shoppingCartDao.addItemToCart(userId, product_id);
 
         }
