@@ -67,8 +67,8 @@ public class ShoppingCartController
 
             ShoppingCart shoppingCart = getCart(principal);
 
-        
-            shoppingCartDao.addItemToCart(userId, product_id);
+
+           shoppingCartDao.addItemToCart(userId, product_id);
 
         }
         catch(Exception e)
